@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Modeseven;
+  src: url("Modeseven-L3n5.ttf");
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Modeseven;
+}
+
+.command-input {
+  background: none;
+  color: greenyellow;
+  font-family: Modeseven;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+
+.error-line {
+  color: red;
+}
