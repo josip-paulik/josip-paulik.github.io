@@ -6,7 +6,7 @@ renderNewCommandLine();
 function clickPress(event) {
     if (event.key == "Enter") {
         commandHistory.push(event.target.value);
-        renderErrorLine();
+        parseCommand(event.target.value);
         renderNewCommandLine();
     }
     if (event.key == "ArrowUp") {
@@ -17,7 +17,7 @@ function clickPress(event) {
 function renderNewCommandLine() {
     let element = document.createElement("div");
     element.className = "command-line";
-    element.innerHTML = `<span>josip-paulik.com &ensp; &gt; &ensp; </span><input type="text" class="command-input" onkeydown="clickPress(event)"/>`;
+    element.innerHTML = `<span class="left-text-input">josip-paulik.com &ensp; &gt; &ensp; </span><input type="text" class="command-input" onkeydown="clickPress(event)"/>`;
     commandContainer.appendChild(element);
     lastElement = element;
 
@@ -37,7 +37,7 @@ function visitCommandHistory() {
     
     inputElement.value = commandHistory[0];
     const length = inputElement.value.length;
-    inputElement.setSelectionRange(length, length);
+    inputElement.setSelectionRange(length - 1, length);
     inputElement.focus();
 
 }

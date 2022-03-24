@@ -18,6 +18,11 @@ body {
   display: inline-block;
 }
 
+.command-line {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+}
+
 .error-line {
   color: red;
 }
