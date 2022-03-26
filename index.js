@@ -1,5 +1,9 @@
 let commandContainer = document.getElementsByClassName("command-container").item(0);
 let lastElement = null;
+renderOutputLines([
+    `Welcome to my portofolio! Type help to get all possible commands`,
+    `&nbsp;`
+]);
 renderNewCommandLine();
 
 
@@ -25,11 +29,17 @@ function renderNewCommandLine() {
     inputElement.focus();
 }
 
+function renderOutputLines(outputLines) {
+    outputLines.forEach(outputLine => {
+        let element = document.createElement("div");
+        element.className = "output-line";
+        element.innerHTML = outputLine;
+        commandContainer.appendChild(element);
+    });
+}
+
 function renderErrorLine() {
-    let element = document.createElement("div");
-    element.className = "output-line";
-    element.innerHTML = `<span class="error-line">Command not recognized.</span>`;
-    commandContainer.appendChild(element);
+    renderOutputLines([`<span class="error-line">Command not recognized.</span>`]);
 }
 
 function visitCommandHistory() {
